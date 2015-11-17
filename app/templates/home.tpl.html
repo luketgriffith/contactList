@@ -1,0 +1,12 @@
+<div class="main">
+<h1>Contact Us</h1>
+  
+<form ng-submit="vm.contactUs(stuff)">
+  <input type="text" ng-model="stuff.name" placeholder="name"><small>{{vm.errMsg}}</small>
+   <input type="text" ng-model="stuff.email" placeholder="email"><small>{{vm.errMsgEmail}}</small>
+    <input type="text" ng-model="stuff.website" placeholder="website">
+    <small>{{vm.errMsgSite}}</small>
+     <textarea ng-model="stuff.message" placeholder="message"></textarea><small>{{vm.errMsgMsg}}</small> 
+     <button>Contact!</button>
+</form>
+</div>
