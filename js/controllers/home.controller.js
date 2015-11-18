@@ -1,4 +1,4 @@
-let HomeController = function($scope, PARSE, $http){
+let HomeController = function($scope, PARSE, $http, sweet){
   let vm = this;
   let url = PARSE.URL + 'classes/contacts';
   vm.title= 'Meow';
@@ -71,11 +71,24 @@ let HomeController = function($scope, PARSE, $http){
   vm.contactUs = function(stuff){
     let hey = new Stuff(stuff);
     $http.post(url, hey, PARSE.CONFIG).then((res)=>{
-      console.log(res);
+       sweet.show({
+            title: 'Your message has been sent.',
+            text: 'Great work.',
+            type: 'warning',
+            showCancelButton: false,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Ok',
+            closeOnConfirm: true
+        })
+
     });
+    stuff.name='';
+    stuff.email='';
+    stuff.website='';
+    stuff.message='';
   };
   
 
 };
-HomeController.$inject= ['$scope', 'PARSE', '$http'];
+HomeController.$inject= ['$scope', 'PARSE', '$http', 'sweet'];
 export default HomeController;
